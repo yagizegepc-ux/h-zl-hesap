@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Kimya Hızlı Hesaplama</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;margin:0}
+header{background:#1f2937;color:white;padding:20px;text-align:center}
+nav{background:#111827;padding:10px;text-align:center}
+nav a{color:white;margin:0 10px;text-decoration:none;font-weight:bold}
+section{background:white;margin:20px;padding:20px;border-radius:8px}
+h2{color:#1f2937}
+input{padding:8px;margin:5px;width:120px}
+button{padding:8px 12px;background:#2563eb;color:white;border:none;border-radius:4px;cursor:pointer}
+footer{text-align:center;padding:15px;color:#555}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Kimya Hızlı Hesaplama</h1>
+<p>TYT – AYT için ücretsiz ve pratik kimya hesaplamaları</p>
+</header>
+
+<nav>
+<a href="#mol">Mol</a>
+<a href="#yuzde">Yüzde</a>
+<a href="#molar">Molarlık</a>
+<a href="#seyreltme">Seyreltme</a>
+<a href="#gaz">Gaz</a>
+</nav>
+
+<section id="mol">
+<h2>Mol Hesaplama</h2>
+<p>Mol = Kütle / Mol Kütlesi</p>
+<input id="kutle" placeholder="Kütle (g)">
+<input id="molkutle" placeholder="Mol kütlesi">
+<button onclick="molHesap()">Hesapla</button>
+<p id="molSonuc"></p>
+</section>
+
+<section id="yuzde">
+<h2>Yüzde Derişim</h2>
+<p>% = (Çözünen / Çözelti) × 100</p>
+<input id="cozunen" placeholder="Çözünen">
+<input id="cozelti" placeholder="Çözelti">
+<button onclick="yuzde()">Hesapla</button>
+<p id="yuzdeSonuc"></p>
+</section>
+
+<section id="molar">
+<h2>Molarlık (M)</h2>
+<input id="mol" placeholder="Mol">
+<input id="hacim" placeholder="Hacim (L)">
+<button onclick="molar()">Hesapla</button>
+<p id="molarSonuc"></p>
+</section>
+
+<section id="seyreltme">
+<h2>Seyreltme</h2>
+<p>M₁ × V₁ = M₂ × V₂</p>
+<input id="m1" placeholder="M1">
+<input id="v1" placeholder="V1">
+<input id="m2" placeholder="M2">
+<button onclick="seyrelt()">V2 Hesapla</button>
+<p id="seyreltSonuc"></p>
+</section>
+
+<section id="gaz">
+<h2>Gaz Denklemi (PV = nRT)</h2>
+<input id="p" placeholder="P (atm)">
+<input id="v" placeholder="V (L)">
+<input id="t" placeholder="T (K)">
+<button onclick="gaz()">n Hesapla</button>
+<p id="gazSonuc"></p>
+</section>
+
+<footer>
+<p>© 2026 Kimya Hızlı Hesaplama</p>
+</footer>
+
+<script>
+function molHesap(){
+let k=document.getElementById("kutle").value;
+let m=document.getElementById("molkutle").value;
+document.getElementById("molSonuc").innerText="Mol = "+(k/m);
+}
+function yuzde(){
+let a=document.getElementById("cozunen").value;
+let b=document.getElementById("cozelti").value;
+document.getElementById("yuzdeSonuc").innerText="Yüzde = "+((a/b)*100);
+}
+function molar(){
+let a=document.getElementById("mol").value;
+let b=document.getElementById("hacim").value;
+document.getElementById("molarSonuc").innerText="M = "+(a/b);
+}
+function seyrelt(){
+let m1=document.getElementById("m1").value;
+let v1=document.getElementById("v1").value;
+let m2=document.getElementById("m2").value;
+document.getElementById("seyreltSonuc").innerText="V2 = "+((m1*v1)/m2);
+}
+function gaz(){
+let p=document.getElementById("p").value;
+let v=document.getElementById("v").value;
+let t=document.getElementById("t").value;
+document.getElementById("gazSonuc").innerText="n = "+((p*v)/(0.082*t));
+}
+</script>
+
+</body>
+</html>
